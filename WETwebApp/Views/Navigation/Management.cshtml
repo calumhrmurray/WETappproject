@@ -1,0 +1,123 @@
+﻿@model PagedList.IPagedList<WETwebApp.ViewModels.ManagementViewModel>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Management";
+}
+
+<h2>Management</h2>
+<p>
+    <ul class="nav nav-tabs">
+        <li>
+            @Html.ActionLink("All", "Management", new { id = "all" }, new { @class = "ct" })
+        </li>
+        <li>
+            @Html.ActionLink("Current", "Management",
+                                new { id = "Current" }, new { @class = "ct" })
+        </li>
+    </ul>
+
+    <p></p>
+
+    @using (Html.BeginForm("Management", "Navigation", FormMethod.Get))
+    {
+        <div class="row">
+            <div class="col-sm-1">
+                WP number:
+                </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                     @Html.TextBox("searchWPnumber", null, new { @class = "rounded-corners" })
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    @Html.DropDownList("searchArea", null, "All", htmlAttributes: new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    @Html.DropDownList("searchBatch", null, "All", htmlAttributes: new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="filter" class="btn btn-default" />
+            </div>
+        </div>
+
+    }
+
+
+                <table class="table">
+                    <tr>
+                        <th>
+                            WP number
+                        </th>
+                        <th>
+                            Latest visit
+                        </th>
+                        <th>
+                            Visit Date
+                        </th>
+                        <th>
+                            Visit Complete
+                        </th>
+                        <th>
+                            HES area
+                        </th>
+                        <th>
+                            HES batch
+                        </th>
+                        <th>
+                            Monitor Status
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.WPnumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LatestVisit)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.VisitDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.VisitComplete)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HESarea)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HESbatch)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MonitorStatus)
+                            </td>
+                            <td>
+                                @Html.ActionLink("View survey", "Survey", new { id = item.WPnumber }, new { @class = "ct" })
+                            </td>
+                            <td>
+                                @Html.ActionLink("Bookings", "Bookings", new { id = item.WPnumber }, new { @class = "ct" })
+                            </td>
+                            <td>
+                                @Html.ActionLink("View visits", "Index", "Visits", new { id = item.WPnumber }, new { @class = "ct" })
+                            </td>
+                        </tr>
+    }
+
+
+                </table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Management",
+     new { page }))
+
+
+

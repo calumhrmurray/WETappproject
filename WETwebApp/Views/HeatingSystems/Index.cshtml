@@ -1,0 +1,45 @@
+﻿@model IEnumerable<WETwebApp.Models.HeatingSystem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HeatingSystemType.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Household.WPnumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HeatingSystemType.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Household.WPnumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.HeatingSystemID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.HeatingSystemID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.HeatingSystemID })
+        </td>
+    </tr>
+}
+
+</table>

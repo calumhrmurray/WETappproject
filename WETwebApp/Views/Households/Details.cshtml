@@ -1,0 +1,106 @@
+﻿@model WETwebApp.Models.Household
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Household</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Developer.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Developer.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HouseholdType.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HouseholdType.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WPnumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WPnumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Town)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Town)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Postcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Postcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HESarea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HESarea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HESbatch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HESbatch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MonitorStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonitorStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstReading)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstReading)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.HouseholdID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

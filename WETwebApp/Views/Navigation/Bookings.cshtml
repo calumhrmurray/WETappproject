@@ -1,0 +1,111 @@
+﻿@model WETwebApp.ViewModels.BookingViewModel
+
+@{
+    ViewBag.Title = "Bookings";
+}
+
+<h1>Bookings</h1>
+
+<h2>Booking Information by Household</h2>
+<hr />
+
+<input type="hidden" name="returnUrl" value="@ViewBag.WPnumber" />
+
+
+<hr />
+
+@foreach (var household in Model.Households)
+{
+    <div class="col-sm-6">
+        <p>
+            <button type="button" class="btn btn-default">   @Html.ActionLink("Add new booking", "Create", "Bookings", new { id = household.WPnumber }, new { @class = "ct" }) </button>
+        </p>
+    </div>
+}
+
+
+<div class="row">
+    @foreach (var item in Model.Persons)
+    {
+        <div class="col-sm-6">
+            <form role="form">
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.Household.WPnumber): </b>  @Html.DisplayFor(modelItem => item.Household.WPnumber)
+                </div>
+                <div class="form-group">
+                    <b> Name: </b> @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)
+                </div>
+                <div class="form-group">
+                    <b>@Html.DisplayNameFor(modelItem => item.Household.Address1): </b> @Html.DisplayFor(modelItem => item.Household.Address1) @Html.DisplayFor(modelItem => item.Household.Address2), @Html.DisplayFor(modelItem => item.Household.Town)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.Telephone): </b> @Html.DisplayFor(modelItem => item.Telephone)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.Email):</b> @Html.DisplayFor(modelItem => item.Email)
+                </div>
+                <div class="form-group">
+                    <b>@Html.DisplayNameFor(modelItem => item.Communication):</b> @Html.DisplayFor(modelItem => item.Communication)
+                </div>
+            </form>
+
+        </div>
+
+    }
+</div>
+
+
+<p></p>
+
+
+@foreach (var item in Model.Visits)
+{
+        <dt>
+            @Html.DisplayFor(modelItem => item.VisitType.Type)  @Html.DisplayFor(modelItem => item.Complete)
+        </dt>
+
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Time/Date of booking</th>
+                    <th>Booking attempt number</th>
+                    <th>Date booked for visit</th>
+
+                </tr>
+                @foreach (var it in Model.Bookings)
+                {
+                    if (item.VisitID == it.VisitID)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => it.BookingDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => it.AttemptNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => it.BookedVisitDate)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", "Bookings", new { id = it.BookingID }, new { @class = "ct" })                                
+                            </td>
+                        </tr>
+                    }
+
+                }
+            </table>
+        </dd>
+
+}
+
+@foreach (var household in Model.Households)
+{
+    <div class="col-sm-6">
+        <p>
+            <button type="button" class="btn btn-default">  @Html.ActionLink("Add new booking", "Create", "Bookings", new { id = household.WPnumber }, new { @class = "ct" }) </button>
+        </p>
+    </div>
+}
+
+
+

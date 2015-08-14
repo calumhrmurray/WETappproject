@@ -1,0 +1,74 @@
+﻿@model WETwebApp.Models.Advice
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Advice</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AdviceType.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdviceType.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Household.WPnumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Household.WPnumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aware)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aware)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdviceComment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdviceComment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdviceNotes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdviceNotes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MessageComment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MessageComment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AdviceID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

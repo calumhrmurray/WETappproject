@@ -1,0 +1,219 @@
+﻿@model IEnumerable<WETwebApp.Models.Attitude>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Household.WPnumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WashingMachine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dishwasher)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WashingLow)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DishwashLow)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WashingEff)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DishwasherEff)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kettle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TapsOff)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WashingBowl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RinsingBowl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TapsFlow)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoKitchen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OtherKitchen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoFlush)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LowFlush)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CDD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LowShower)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TapsOffBrush)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShowersNotBaths)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LessBathWater)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShorterShowers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TapsFlowBath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoBathroom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OtherBath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WaterButt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WaterCan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoHosepipe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoWaterLawn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoGarden)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OtherGarden)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Household.WPnumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WashingMachine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dishwasher)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WashingLow)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DishwashLow)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WashingEff)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DishwasherEff)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kettle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TapsOff)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WashingBowl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RinsingBowl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TapsFlow)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoKitchen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OtherKitchen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoFlush)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LowFlush)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CDD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LowShower)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TapsOffBrush)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShowersNotBaths)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LessBathWater)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShorterShowers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TapsFlowBath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoBathroom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OtherBath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WaterButt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WaterCan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoHosepipe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoWaterLawn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoGarden)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OtherGarden)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AttitudeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AttitudeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AttitudeID })
+        </td>
+    </tr>
+}
+
+</table>

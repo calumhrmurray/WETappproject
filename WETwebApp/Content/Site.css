@@ -1,0 +1,107 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+   /*background-color: #E6FFFA;*/ 
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/*Customizing my navbar*/
+.navbar-inverse {
+    background-color:#67A4B7;
+    color:#ffffff !important;
+    border-color:#67A4B7;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color:#fff;
+}
+.navbar-inverse .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: #eeeeee;
+    background-color:transparent;
+}
+.navbar-inverse .navbar-brand {
+    color:#eeeeee;
+}
+
+/*Just for the home page navbar*/
+/*Customizing my navbar*/
+/*Customizing my navbar*/
+.navbar-custom {
+    background-color:#ffffff;
+    color:#000066 !important;
+    border-color:#ffffff;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color:#000066;
+}
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: #000066;
+    background-color:transparent;
+}
+.navbar-custom .navbar-brand {
+    color:#000066;
+}
+
+
+/*Customizing jumbotron*/
+
+.jumbotron {
+  background-image:url(/Content/Images/RainyWindow.jpg);
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+}
+
+.jumbotron .container {
+  position: relative;
+  top:100px;
+}
+
+.jumbotron h1 {
+  color: #fff;
+  font-size: 48px;  
+  font-family: 'Shift', sans-serif;
+  font-weight: bold;
+}
+
+.jumbotron p {
+  font-size: 20px;
+  color: #fff;
+}
+
+/*Setting text and color for html actionlinks*/
+a.ct {
+    color: #808080;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/*Rounded corners for the WP number searchbox*/
+@import 'bootstrap.less';
+div.rounded-corners {
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+
+

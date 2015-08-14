@@ -1,0 +1,141 @@
+﻿@model IEnumerable<WETwebApp.Models.Occupant>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Household.WPnumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaleQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FemaleQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChildQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OccupantNotes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SelfEmployed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployedFull)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployedPart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Home)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Retired)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unemployed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.School)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Further)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GovWork)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PreSchool)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Other)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DemographicNotes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BedroomQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Household.WPnumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaleQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FemaleQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChildQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OccupantNotes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SelfEmployed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployedFull)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployedPart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Home)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Retired)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Unemployed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.School)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Further)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GovWork)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreSchool)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Other)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DemographicNotes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BedroomQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OccupantID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OccupantID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OccupantID })
+        </td>
+    </tr>
+}
+
+</table>

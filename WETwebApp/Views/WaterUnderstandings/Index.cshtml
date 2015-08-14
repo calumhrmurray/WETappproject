@@ -1,0 +1,75 @@
+﻿@model IEnumerable<WETwebApp.Models.WaterUnderstanding>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Household.WPnumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WaterReduction.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WaterSupplier)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FamilyUsage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IndividualUsage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SavingBills)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WaterReductionWhy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Household.WPnumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WaterReduction.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WaterSupplier)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FamilyUsage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IndividualUsage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SavingBills)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WaterReductionWhy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.WaterUnderstandingID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.WaterUnderstandingID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.WaterUnderstandingID })
+        </td>
+    </tr>
+}
+
+</table>

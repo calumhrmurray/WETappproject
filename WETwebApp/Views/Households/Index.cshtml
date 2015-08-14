@@ -1,0 +1,93 @@
+﻿@model IEnumerable<WETwebApp.Models.Household>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Developer.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HouseholdType.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WPnumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Town)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Postcode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HESarea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HESbatch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonitorStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstReading)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Developer.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HouseholdType.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WPnumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Town)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Postcode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HESarea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HESbatch)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonitorStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstReading)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.HouseholdID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.HouseholdID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.HouseholdID })
+        </td>
+    </tr>
+}
+
+</table>

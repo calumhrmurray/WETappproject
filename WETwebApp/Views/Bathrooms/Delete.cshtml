@@ -1,0 +1,144 @@
+﻿@model WETwebApp.Models.Bathroom
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Bathroom</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BathroomType.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BathroomType.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Household.WPnumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Household.WPnumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BathroomQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BathroomQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToiletQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToiletQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SingleToiletQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SingleToiletQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DualToiletQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DualToiletQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Electric)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Electric)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Power)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Power)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mixer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mixer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Unknown)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unknown)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Round)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Round)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Threaded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Threaded)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NonThreaded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NonThreaded)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Other)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Other)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

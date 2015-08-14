@@ -1,0 +1,82 @@
+﻿@model WETwebApp.Models.WaterUnderstanding
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>WaterUnderstanding</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Household.WPnumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Household.WPnumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WaterReduction.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WaterReduction.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WaterSupplier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WaterSupplier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FamilyUsage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FamilyUsage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IndividualUsage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IndividualUsage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SavingBills)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SavingBills)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WaterReductionWhy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WaterReductionWhy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.WaterUnderstandingID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

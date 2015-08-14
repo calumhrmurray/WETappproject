@@ -1,0 +1,423 @@
+﻿@model WETwebApp.ViewModels.SurveyViewModel
+
+@{
+    ViewBag.Title = "Surveys";
+}
+
+<h2>Survey information</h2>
+
+<hr />
+@foreach( var it in Model.Household)
+{ 
+<div class="row">
+@foreach (var item in Model.Person)
+        {
+    <div class="col-sm-6">
+            <form role="form">
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.Household.WPnumber): </b>  @Html.DisplayFor(modelItem => item.Household.WPnumber)
+                </div>
+                <div class="form-group">
+                    <b> Name: </b> @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)
+                </div>
+                <div class="form-group">
+                    <b>@Html.DisplayNameFor(modelItem => item.Household.Address1): </b> @Html.DisplayFor(modelItem => item.Household.Address1) @Html.DisplayFor(modelItem => item.Household.Address2), @Html.DisplayFor(modelItem => item.Household.Town)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.Telephone): </b> @Html.DisplayFor(modelItem => item.Telephone)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.Email):</b> @Html.DisplayFor(modelItem => item.Email)
+                </div>
+                <div class="form-group">
+                    <b>@Html.DisplayNameFor(modelItem => item.Communication):</b> @Html.DisplayFor(modelItem => item.Communication)
+                </div>
+            </form>
+        
+    </div>
+          }
+    <div class="col-sm-6">
+        <p>
+            <button type="button" class="btn btn-default">   @Html.ActionLink("Update Persons Details", "Create", "People", new { id = it.WPnumber }, new { @class = "ct" }) </button>
+        </p>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-sm-4">
+        <h3>Occupant information</h3>
+        <form role="form">
+            @foreach (var item in Model.Occupant)
+            {
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.MaleQuantity): </b>@Html.DisplayFor(modelItem => item.MaleQuantity)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.FemaleQuantity): </b>@Html.DisplayFor(modelItem => item.FemaleQuantity)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.ChildQuantity): </b>@Html.DisplayFor(modelItem => item.ChildQuantity)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.OccupantNotes): </b>@Html.DisplayFor(modelItem => item.OccupantNotes)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.BedroomQuantity): </b>@Html.DisplayFor(modelItem => item.BedroomQuantity)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.DemographicNotes): </b>@Html.DisplayFor(modelItem => item.DemographicNotes)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.SelfEmployed): </b>@Html.DisplayFor(modelItem => item.SelfEmployed)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.EmployedFull): </b>@Html.DisplayFor(modelItem => item.EmployedFull)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.EmployedPart): </b>@Html.DisplayFor(modelItem => item.EmployedPart)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.Home): </b>@Html.DisplayFor(modelItem => item.Home)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.Retired): </b>@Html.DisplayFor(modelItem => item.Retired)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.Unemployed): </b>@Html.DisplayFor(modelItem => item.Unemployed)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.School): </b>@Html.DisplayFor(modelItem => item.School)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.Further): </b>@Html.DisplayFor(modelItem => item.Further)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.GovWork): </b>@Html.DisplayFor(modelItem => item.GovWork)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.PreSchool): </b>@Html.DisplayFor(modelItem => item.Further)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.Other): </b>@Html.DisplayFor(modelItem => item.Other)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.DemographicNotes): </b>@Html.DisplayFor(modelItem => item.DemographicNotes)
+                </div>
+            }
+           @if (ViewBag.OccupantError != null)
+            {
+            <div class="alert alert-warning">
+                <strong>Warning:</strong> @ViewBag.OccupantError
+            </div>
+            }
+            </form>
+        <button type="button" class="btn btn-default">   @Html.ActionLink("Update", "Create", "Occupants", new { id = it.WPnumber }, new { @class = "ct" }) </button>
+        </div>
+        <div class="col-sm-4">
+            <h3>Household information</h3>
+            <form role="form">
+               @foreach (var item in Model.HouseholdInformation)
+               {
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.HouseholdDescriptionType.Type): </b>@Html.ValueFor(modelItem => item.HouseholdDescriptionType.Type)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.HeatingSystemType.Type): </b>@Html.DisplayFor(modelItem => item.HeatingSystemType.Type)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.ElectricitySupplierType.Type): </b>@Html.DisplayFor(modelItem => item.ElectricitySupplierType.Type)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.GasSupplierType.Type): </b> @Html.DisplayFor(modelItem => item.GasSupplierType.Type)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.TelevisionSupplierType.Type): </b>@Html.DisplayFor(modelItem => item.TelevisionSupplierType.Type)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.InternetAccess): </b>@Html.DisplayFor(modelItem => item.InternetAccess)
+                </div>
+                <div class="form-group">
+                    <b> @Html.DisplayNameFor(modelItem => item.HouseholdNotes): </b>@Html.DisplayFor(modelItem => item.HouseholdNotes)
+                </div>
+               }
+               </form>
+            <button type="button" class="btn btn-default">   @Html.ActionLink("Update", "Create", "HouseholdInformations", new { id = it.WPnumber }, new { @class = "ct" }) </button>
+        </div>
+        <div class="col-sm-4">
+            <h3>Bathroom information</h3>
+            <form role="form">
+                @foreach (var item in Model.Bathroom)
+                {
+                    <div class="form-group">
+                        <b> Shower/Bath/Both: </b>@Html.DisplayFor(modelItem => item.BathroomType.Type)
+                    </div>
+                    <div class="form-group">
+                        <b> @Html.DisplayNameFor(modelItem => item.BathroomQuantity): </b>@Html.DisplayFor(modelItem => item.BathroomQuantity)
+                    </div>
+                    <div class="form-group">
+                        <b> @Html.DisplayNameFor(modelItem => item.ToiletQuantity): </b>@Html.DisplayFor(modelItem => item.ToiletQuantity)
+                    </div>
+                   <div class="form-group">
+                        <b> @Html.DisplayNameFor(modelItem => item.SingleToiletQuantity): </b>@Html.DisplayFor(modelItem => item.SingleToiletQuantity)
+                    </div>
+                    <div class="form-group">
+                        <b> @Html.DisplayNameFor(modelItem => item.DualToiletQuantity): </b>@Html.DisplayFor(modelItem => item.DualToiletQuantity)
+                    </div>
+                    <div class="form-group">
+                        <b> @Html.DisplayNameFor(modelItem => item.Electric): </b>@Html.DisplayFor(modelItem => item.Electric)
+                    </div>
+                    <div class="form-group">
+                        <b> @Html.DisplayNameFor(modelItem => item.Power): </b>@Html.DisplayFor(modelItem => item.Power)
+                    </div>
+                    <div class="form-group">
+                        <b> @Html.DisplayNameFor(modelItem => item.Mixer): </b>@Html.DisplayFor(modelItem => item.Mixer)
+                    </div>
+                    <div class="form-group">
+                        <b> @Html.DisplayNameFor(modelItem => item.Unknown): </b>@Html.DisplayFor(modelItem => item.Unknown)
+                    </div>
+                    <div class="form-group">
+                        <b> @Html.DisplayNameFor(modelItem => item.Round): </b>@Html.DisplayFor(modelItem => item.Round)
+                    </div>
+                    <div class="form-group">
+                        <b> @Html.DisplayNameFor(modelItem => item.Threaded): </b>@Html.DisplayFor(modelItem => item.Threaded)
+                    </div>
+                    <div class="form-group">
+                        <b> @Html.DisplayNameFor(modelItem => item.NonThreaded): </b>@Html.DisplayFor(modelItem => item.NonThreaded)
+                    </div>
+                    <div class="form-group">
+                        <b> @Html.DisplayNameFor(modelItem => item.Other): </b>@Html.DisplayFor(modelItem => item.Other)
+                    </div>
+                }
+               @if (ViewBag.ToiletError != null)
+                {
+                <div class="alert alert-warning">
+                    <strong>Warning:</strong> @ViewBag.ToiletError
+                </div>
+                }
+            </form>
+            <button type="button" class="btn btn-default">   @Html.ActionLink("Update", "Create", "Bathrooms", new { id = it.WPnumber }, new { @class = "ct" }) </button>
+        </div>
+    </div>
+<hr />
+    <div class="row">
+        <div class="col-sm-6">
+        <h3>Outdoors</h3>
+            <form role="form">
+                @foreach (var item in Model.Outdoor)
+                {
+                    <div class="form-group">
+                        <b> @Html.DisplayNameFor(modelItem => item.Car): </b>@Html.DisplayFor(modelItem => item.Car)
+                    </div>
+                    <div class="form-group">
+                        <b> @Html.DisplayNameFor(modelItem => item.WashCar): </b>@Html.DisplayFor(modelItem => item.WashCar)
+                    </div>
+                    <div class="form-group">
+                        <b> @Html.DisplayNameFor(modelItem => item.Garden): </b>@Html.DisplayFor(modelItem => item.Garden)
+                    </div>
+                    <div class="form-group">
+                        <b> @Html.DisplayNameFor(modelItem => item.WaterGarden): </b>@Html.DisplayFor(modelItem => item.WaterGarden)
+                    </div>
+                    }
+                <button type="button" class="btn btn-default">   @Html.ActionLink("Update", "Create", "Outdoors", new { id = it.WPnumber }, new { @class = "ct" }) </button>
+            </form>
+            </div>
+        <div class="col-sm-6">
+            <h3>Kitchen</h3>
+            <form role="form">
+                @foreach (var item in Model.Kitchen)
+                {
+                    <div class="form-group">
+                        <b> @Html.DisplayNameFor(modelItem => item.Dishwasher): </b>@Html.DisplayFor(modelItem => item.Dishwasher)
+                    </div>
+                    <div class="form-group">
+                        <b> @Html.DisplayNameFor(modelItem => item.WashingMachine): </b>@Html.DisplayFor(modelItem => item.WashingMachine)
+                    </div>
+                    }
+                <button type="button" class="btn btn-default">   @Html.ActionLink("Update", "Create", "Kitchens", new { id = it.WPnumber }, new { @class = "ct" }) </button>
+            </form>
+        </div>
+    </div>
+
+ <hr />
+<div class="row">
+    <h3>Water understanding</h3>
+    <form class ="form-inline" role="form">
+        @foreach (var item in Model.WaterUnderstanding)
+        {
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(modelItem => item.WaterSupplier): </b>@Html.DisplayFor(modelItem => item.WaterSupplier)
+            </div>
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(modelItem => item.FamilyUsage): </b>@Html.DisplayFor(modelItem => item.FamilyUsage)
+            </div>
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(modelItem => item.IndividualUsage): </b>@Html.DisplayFor(modelItem => item.IndividualUsage)
+            </div>
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(modelItem => item.SavingBills): </b>@Html.DisplayFor(modelItem => item.SavingBills)
+            </div>
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(modelItem => item.WaterReduction.Type): </b>@Html.DisplayFor(modelItem => item.WaterReduction.Type)
+            </div>
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(modelItem => item.WaterReductionWhy): </b>@Html.DisplayFor(modelItem => item.WaterReductionWhy)
+            </div>
+        }
+        <button type="button" class="btn btn-default">   @Html.ActionLink("Update", "Create", "WaterUnderstandings", new { id = it.WPnumber }, new { @class = "ct" }) </button>
+    </form>
+</div>
+
+    <hr />
+
+
+ <div class="row">
+     <div class="col-sm-4"> 
+         <div class="form-group">
+             <h4>In the kitchen</h4>
+         </div>
+         @foreach (var item in Model.Attitude)
+         {
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.WashingMachine): </b>@Html.DisplayFor(modelItem => item.WashingMachine)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.Dishwasher): </b>@Html.DisplayFor(modelItem => item.Dishwasher)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.WashingLow): </b>@Html.DisplayFor(modelItem => item.WashingLow)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.DishwashLow): </b>@Html.DisplayFor(modelItem => item.DishwashLow)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.WashingEff): </b>@Html.DisplayFor(modelItem => item.WashingEff)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.DishwasherEff): </b>@Html.DisplayFor(modelItem => item.DishwasherEff)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.Kettle): </b>@Html.DisplayFor(modelItem => item.Kettle)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.TapsOff): </b>@Html.DisplayFor(modelItem => item.TapsOff)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.WashingBowl): </b>@Html.DisplayFor(modelItem => item.WashingBowl)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.RinsingBowl): </b>@Html.DisplayFor(modelItem => item.RinsingBowl)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.TapsFlow): </b>@Html.DisplayFor(modelItem => item.TapsFlow)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.NoKitchen): </b>@Html.DisplayFor(modelItem => item.NoKitchen)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.OtherKitchen): </b>@Html.DisplayFor(modelItem => item.OtherKitchen)
+             </div>
+         }
+     </div>      
+     <div class="col-sm-4">
+         <div class="form-group">
+             <h4>In the bathroom</h4>
+         </div>
+         @foreach (var item in Model.Attitude)
+         {
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.NoFlush): </b>@Html.DisplayFor(modelItem => item.NoFlush)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.LowFlush): </b>@Html.DisplayFor(modelItem => item.LowFlush)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.CDD): </b>@Html.DisplayFor(modelItem => item.CDD)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.LowShower): </b>@Html.DisplayFor(modelItem => item.LowShower)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.TapsOffBrush): </b>@Html.DisplayFor(modelItem => item.TapsOffBrush)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.ShowersNotBaths): </b>@Html.DisplayFor(modelItem => item.ShowersNotBaths)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.LessBathWater): </b>@Html.DisplayFor(modelItem => item.LessBathWater)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.ShorterShowers): </b>@Html.DisplayFor(modelItem => item.ShorterShowers)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.TapsFlowBath): </b>@Html.DisplayFor(modelItem => item.TapsFlowBath)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.NoBathroom): </b>@Html.DisplayFor(modelItem => item.NoBathroom)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.OtherBath): </b>@Html.DisplayFor(modelItem => item.OtherBath)
+             </div>
+         }
+     </div>   
+     <div class="col-sm-4">
+         <div class="form-group">
+             <h4>In the garden</h4>
+         </div>
+         @foreach (var item in Model.Attitude)
+         {
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.WaterButt): </b>@Html.DisplayFor(modelItem => item.NoFlush)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.WaterCan): </b>@Html.DisplayFor(modelItem => item.LowFlush)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.NoHosepipe): </b>@Html.DisplayFor(modelItem => item.CDD)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.NoWaterLawn): </b>@Html.DisplayFor(modelItem => item.LowShower)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.NoGarden): </b>@Html.DisplayFor(modelItem => item.TapsOffBrush)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.OtherGarden): </b>@Html.DisplayFor(modelItem => item.ShowersNotBaths)
+             </div>                                        
+         }
+            </div>
+                 <button type="button" class="btn btn-default">   @Html.ActionLink("Update", "Create", "Attitudes", new { id = it.WPnumber }, new { @class = "ct" }) </button>
+            </div>
+    if (ViewBag.GardenError != null)
+    {
+        <div class="alert alert-warning">
+            <strong>Warning:</strong> @ViewBag.GardenError
+        </div>
+    }
+
+ <hr />
+
+
+ <div class="row">
+     <h3>Water advice</h3>
+     <form class="form-inline" role="form">
+         @foreach (var item in Model.Advice)
+         {
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.Aware): </b>@Html.DisplayFor(modelItem => item.Aware)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.AdviceComment): </b>@Html.DisplayFor(modelItem => item.AdviceComment)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.AdviceNotes): </b>@Html.DisplayFor(modelItem => item.AdviceNotes)
+             </div>
+             <div class="form-group">
+                 <b> @Html.DisplayNameFor(modelItem => item.MessageComment): </b>@Html.DisplayFor(modelItem => item.MessageComment)
+             </div>
+         }
+         <button type="button" class="btn btn-default">   @Html.ActionLink("Update", "Create", "Advices", new { id = it.WPnumber }, new { @class = "ct" }) </button>
+     </form>
+ </div>
+
+}
+

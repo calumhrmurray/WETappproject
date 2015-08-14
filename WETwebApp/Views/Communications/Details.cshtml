@@ -1,0 +1,50 @@
+﻿@model WETwebApp.Models.Communication
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Communication</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Household.WPnumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Household.WPnumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelevisionSupplierType.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelevisionSupplierType.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InternetAccess)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InternetAccess)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CommunicationID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

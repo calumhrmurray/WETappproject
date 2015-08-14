@@ -1,0 +1,66 @@
+﻿@model WETwebApp.Models.Outdoor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Outdoor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Household.WPnumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Household.WPnumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Garden)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Garden)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Car)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Car)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WaterGarden)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WaterGarden)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WashCar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WashCar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OutdoorID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

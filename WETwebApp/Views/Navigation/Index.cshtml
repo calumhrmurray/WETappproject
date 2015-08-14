@@ -1,0 +1,66 @@
+﻿@{
+    Layout = null;
+}
+@{
+    ViewBag.Title = "Home";
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Water Energy Trial website</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+<body>
+
+    <div class="navbar navbar-custom navbar-fixed-top ">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink(" Water Efficency Trial", "Index", "Navigation", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Navigation")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+    <div class="jumbotron">
+        <div class="container">
+           @*h1>Water efficency trial</h1>*@
+        </div>
+    </div>
+
+
+    <ul class="nav nav-tabs">
+        <li>
+            @Html.ActionLink("Home", "Index", null, new { @class = "ct" })
+        </li>
+        <li>
+            @Html.ActionLink("Management form", "Management", null, new { @class = "ct" })
+        </li>
+        <li>
+            @Html.ActionLink("Visit admin", "Visits", null, new { @class = "ct" })
+        </li>
+        <li>
+            @Html.ActionLink("Stats", "Stats", null, new { @class = "ct" }) 
+        </li>
+    </ul>
+
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,113 @@
+﻿@model PagedList.IPagedList<WETwebApp.Models.Booking>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+
+@{
+    ViewBag.Title = "Visits";
+}
+
+<h2>Visit admin</h2>
+
+<ul class="nav nav-tabs" >
+    <li>
+        @Html.ActionLink("All", "Visits", null, new { @class = "ct" })
+    </li>
+    <li>
+              @Html.ActionLink("Upcoming visits", "Visits", new { id = "Upcoming" },  new { @class = "ct" }) 
+    </li>
+    <li>
+              @Html.ActionLink("Uncompleted past visits", "Visits", new { id = "Past" },  new { @class = "ct" }) 
+    </li>
+    <li>
+              @Html.ActionLink("Completed visits", "Visits", new { id = "Completed" },  new { @class = "ct" }) 
+    </li>
+</ul>
+<p></p>
+@using (Html.BeginForm("Visits", "Navigation", FormMethod.Get, new { id = "id" }))
+{
+           <div class="row">
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        @Html.DropDownList("searchAdvisor", null, "All", htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+               <div class="col-sm-2">
+                   <div class="form-group">
+                       @Html.DropDownList("searchArea", null, "All", htmlAttributes: new { @class = "form-control" })
+                   </div>
+               </div>
+               <div class="col-sm-2">
+                   <div class="form-group">
+                       @Html.DropDownList("searchBatch", null, "All", htmlAttributes: new { @class = "form-control" })
+                   </div>
+               </div>
+               <div class="form-group">
+                      <input type="submit" value="filter" class="btn btn-default" />
+               </div>
+             </div>
+
+        }
+
+        <p></p>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                Advisor
+                            </th>
+                            <th>
+                                Visit type
+                            </th>
+                            <th>
+                               WP number
+                            </th>
+                            <th>
+                                Date of booking
+                            </th>
+                            <th>
+                               Date booked for visit
+                            </th>
+
+                            <th></th>
+                        </tr>
+
+                        @if (Model == null)
+                        {
+
+                             <text>      Model is null </text>
+
+                        }
+                        else
+                        {
+
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Advisor.FirstName) @Html.DisplayFor(modelItem => item.Advisor.LastName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Visit.VisitType.Type)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Visit.Household.WPnumber)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.BookingDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.BookedVisitDate)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Complete visit", "Complete", "Visits", new { id = item.VisitID },  new { @class = "ct" })
+                                    </td>
+                                </tr>
+                            }
+                        }
+          </table>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Visits",
+     new { page }))
+
+
+

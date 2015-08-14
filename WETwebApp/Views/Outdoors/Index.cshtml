@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WETwebApp.Models.Outdoor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Household.WPnumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Garden)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Car)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WaterGarden)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WashCar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Household.WPnumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Garden)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Car)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WaterGarden)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WashCar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OutdoorID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OutdoorID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OutdoorID })
+        </td>
+    </tr>
+}
+
+</table>
