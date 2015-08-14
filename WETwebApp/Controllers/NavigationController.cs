@@ -103,16 +103,18 @@ namespace WETwebApp.Controllers
 
             };
 
+            //filters by WPnumber
             if (!String.IsNullOrEmpty(searchString))
             {
                 bookings = new BookingViewModel()
-                               {
+                               {  
                                    Households = db.Households.Where(h => h.WPnumber.Contains(searchString))
                                                              .ToList(),
                                    Visits = db.Visits.Where(v=> v.Household.WPnumber.Contains(searchString))
                                                      .ToList(),
                                    Bookings = db.Bookings.Where(b=>b.Visit.Household.WPnumber.Contains(searchString))
                                                          .ToList(),
+                                  //finds the most recent person record for the WP number
                                    Persons = db.Persons.Where(p=>p.Household.WPnumber.Contains(searchString))
                                                         .OrderByDescending(u=>u.UpdateDate).Take(1).ToList()
                                };
@@ -298,7 +300,7 @@ namespace WETwebApp.Controllers
                 bookings = bookings.Where(b => b.Visit.Household.HESbatch == searchBatch);
             };
 
-            int pageSize = 3;
+            int pageSize = 20;
             int pageNumber = (page ?? 1);
 
              return View(bookings.OrderBy(v=>v.BookingDate).ToPagedList(pageNumber, pageSize));

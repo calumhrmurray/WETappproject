@@ -233,7 +233,7 @@
     <Compile Include="ViewModels\BookingViewModel.cs" />
     <Compile Include="ViewModels\ManagementViewModel.cs" />
     <Compile Include="ViewModels\SurveyViewModel.cs" />
-    <Compile Include="ViewModels\UpcomingVisitsViewModel.cs" />
+    <Compile Include="ViewModels\VisitsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\aspnet-WETwebApp-20150731033219.mdf" />
